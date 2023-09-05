@@ -1,0 +1,66 @@
+body {
+    background: rgb(34, 56, 30);
+    color: rgb(2, 44, 5);
+    padding: 10px;
+    font-family: arial;
+}
+#all-contents {
+  max-width: 800px;
+    margin: auto;
+}
+
+/* navigation menu */
+nav {
+    background: rgb(78, 57, 51);
+   margin: 0 auto;
+   margin-bottom: 20px;
+    display: flex;
+    padding: 10px;
+    border-radius:25% 10%;
+
+}
+h1 {
+    display: flex;
+    align-items: center;
+    color: rgb(34, 25, 0);
+    flex: 1;
+    margin: 0;
+}
+#nav-ul {
+    list-style-image: none;
+}
+.nav-li {
+    display: inline-block;
+    padding: 0 10px;
+}
+a {
+    text-decoration: none;
+    color: #c2b097;
+}
+
+/* main container area beneath menu */
+main {
+    background: rgb(106, 139, 53);
+    display: flex;
+    border-radius: 10% / 50%;
+}
+.sidebar {
+    margin-right: 25px;
+    padding: 10px;
+}
+.sidebar-img {
+    width: 200px;
+}
+.content {
+    flex: 1;
+    padding: 15px;
+}
+
+/* portfolio styles */
+#interests {
+    border: 4px rgb(213, 205, 195) ridge;
+    padding: 8px;
+}
+h2, h3 {
+    margin: 0px;
+}
