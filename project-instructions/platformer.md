@@ -241,7 +241,7 @@ For this project and all future projects, you'll commit and push work more frequ
 
 - In your bash terminal, enter the following commands, pressing ENTER after each one.
 
-  - `git add -A`
+  - wadd -A`
 
   - `git commit -m '<message about commit>'`
 
