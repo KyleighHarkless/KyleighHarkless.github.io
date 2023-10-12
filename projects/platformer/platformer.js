@@ -52,8 +52,8 @@ createPlatform(740, 220, 120, 20);
 createPlatform(920, 120, 120, 20);
 createPlatform(1100, 120, 90, 20);
 createPlatform(1250, 120, 90, 20);
-createPlatform(380, 225, 60, 20)
-createPlatform(100, 225, 60, 20)
+createPlatform(380, 225, 60, 20);
+createPlatform(100, 225, 60, 20);
 
 
     
