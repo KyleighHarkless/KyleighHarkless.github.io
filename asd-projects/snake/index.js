@@ -222,7 +222,7 @@ repositionSquare(apple);
  */
 function makeSnakeSquare(row, column) {
   // TODO 4c-1: Fill in this function's code block
-}
+
   // initialize a new snakeSquare Object
   var snakeSquare = {};
 
@@ -241,10 +241,11 @@ function makeSnakeSquare(row, column) {
     snakeSquare.element.attr("id", "snake-head");
   }
 
+
   // add snakeSquare to the end of the body Array and set it as the new tail
   snake.body.push(snakeSquare);
   snake.tail = snakeSquare;
-
+}
 /* 
   event.which returns the keycode of the key that is pressed when the
   keydown event occurs
