@@ -8,6 +8,7 @@
 var board = $("#board");
 var scoreElement = $("#score");
 var highScoreElement = $("#highScore");
+$("body").on("keydown", handleKeyDown);
 
 // TODO 4a: Create the snake, apple and score variables
 // Game Variables
@@ -87,11 +88,18 @@ function checkForNewDirection(event) {
 
   if (activeKey === KEY.LEFT) {
     snake.head.direction = "left";
+  } else if (activeKey === KEY.RIGHT) {
+    snake.head.direction = "right"
+  } else if (activeKey === KEY.DOWN) {
+    snake.head.direction = "down"
+  } else {
+    snake.head.direction = "up"
   }
+  
 
   // FILL IN THE REST
 
-  console.log(snake.head.direction);     
+  /*console.log(snake.head.direction); */    
 }
 
 function moveSnake() {
@@ -109,9 +117,22 @@ function moveSnake() {
   checkForNewDirection();
 
   /* 
-  TODO 7: determine the next row and column for the snake's head
+  TODO 7: determine the next row and column for the snake's head */
   
-  HINT: The snake's head will need to move forward 1 square based on the value
+if (snake.head.direction === "left") {
+  snake.head.column = snake.head.column - 1; 
+} 
+else if (snake.head.direction === "right") {
+  snake.head.column = snake.head.column + 1;
+} 
+else if (snake.head.direction === "up") {
+  snake.head.row = snake.head.row - 1
+} 
+else {
+  snake.head.row = snake.head.row + 1
+}
+repositionSquare(snake.head);
+  /* HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
 }
@@ -123,10 +144,17 @@ function hasHitWall() {
   
   HINT: What will the row and column of the snake's head be if this were the case?
   */
-
-  return false;
+if (snake.head.row === ROWS) {
+  return true
+} else {
+  return false
+} 
+if (snake.head.column === COLUMNS || snake.head.column === 0) {
+  return true
+} else {
+  return false
 }
-
+}
 function hasCollidedWithApple() {
   /* 
   TODO 9: Should return true if the snake's head has collided with the apple, 
