@@ -104,9 +104,23 @@ function checkForNewDirection(event) {
 
 function moveSnake() {
   /* 
-  TODO 11: Move each part of the snake's body such that it's body follows the head.
+  TODO 11: Move each part of the snake's body such that it's body follows the head. */
   
-  HINT: To complete this TODO we must figure out the next direction, row, and 
+  for (var i = snake.head; i > snake.body; i--) {
+    
+    var snakeSquare = snake.body[i];
+    var nextSnakeSquare = snake.body[i];
+    var nextRow = snake.body.row[i];
+    var nextColumn = snake.body.column[i];
+    var nextDirection = snake.body.direction[i];
+
+    snakeSquare.direction = nextDirection;
+    snakeSquare.row = nextRow;
+    snakeSquare.column = nextColumn;
+    repositionSquare(snakeSquare);
+}
+}
+  /* HINT: To complete this TODO we must figure out the next direction, row, and 
   column for each snakeSquare in the snake's body. The parts of the snake are 
   stored in the Array snake.body and each part knows knows its current 
   column/row properties. 
@@ -135,7 +149,7 @@ repositionSquare(snake.head);
   /* HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
-}
+
 
 function hasHitWall() {
   /* 
@@ -190,15 +204,15 @@ function handleAppleCollision() {
    row = snake.head.row - 1 
    column = snake.head.column
 }
- else if (snake.tail.direction === "right") {
+ if (snake.tail.direction === "right") {
    column = snake.head.column - 1
    row = snake.head.row
  }
-  else if (snake.tail.direction === "down") {
-    row = snake.head.row + 1
+  if (snake.tail.direction === "down") {
+    row = snake.head.row - 1
     column = snake.head.column
  }
- else if (snake.tail.direction === "left") {  
+ if (snake.tail.direction === "left") {  
   column = snake.head.column + 1
   row = snake.head.row
  }
@@ -212,13 +226,16 @@ function hasCollidedWithSnake() {
   /* 
   TODO 12: Should return true if the snake's head has collided with any part of the
   snake's body.
-  
   HINT: Each part of the snake's body is stored in the snake.body Array. The
   head and each part of the snake's body also knows its own row and column.
   
   */
-
-  return false;
+if (snake.head === snake.body) {
+  return true
+} else {
+  return false
+}
+return false
 }
 
 function endGame() {
