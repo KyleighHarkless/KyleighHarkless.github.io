@@ -106,13 +106,14 @@ function moveSnake() {
   /* 
   TODO 11: Move each part of the snake's body such that it's body follows the head. */
   
-  for (var i = snake.head; i > snake.body; i--) {
+  for (var i = snake.body.length - 1; i > 0; i--) {
     
     var snakeSquare = snake.body[i];
-    var nextSnakeSquare = snake.body[i];
-    var nextRow = snake.body.row[i];
-    var nextColumn = snake.body.column[i];
-    var nextDirection = snake.body.direction[i];
+
+    var nextSnakeSquare = snake.body[i - 1];
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = snake.tail.direction;
 
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -142,7 +143,7 @@ else if (snake.head.direction === "right") {
 else if (snake.head.direction === "up") {
   snake.head.row = snake.head.row - 1
 } 
-else {
+else if (snake.head.direction === "down") {
   snake.head.row = snake.head.row + 1
 }
 repositionSquare(snake.head);
