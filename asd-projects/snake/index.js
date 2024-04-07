@@ -92,7 +92,7 @@ function checkForNewDirection(event) {
     snake.head.direction = "right"
   } else if (activeKey === KEY.DOWN) {
     snake.head.direction = "down"
-  } else {
+  } else if (activeKey === KEY.UP) {
     snake.head.direction = "up"
   }
   
@@ -120,7 +120,7 @@ function moveSnake() {
     snakeSquare.column = nextColumn;
     repositionSquare(snakeSquare);
 }
-}
+
   /* HINT: To complete this TODO we must figure out the next direction, row, and 
   column for each snakeSquare in the snake's body. The parts of the snake are 
   stored in the Array snake.body and each part knows knows its current 
@@ -150,7 +150,7 @@ repositionSquare(snake.head);
   /* HINT: The snake's head will need to move forward 1 square based on the value
   of snake.head.direction which may be one of "left", "right", "up", or "down"
   */
-
+}
 
 function hasHitWall() {
   /* 
@@ -231,12 +231,12 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-if (snake.head === snake.body) {
-  return true
-} else {
-  return false
+for (var i = 1; i < snake.body.length; i++) {
+  if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i].row) {
+    return true
+  }
 }
-return false
+
 }
 
 function endGame() {
@@ -348,8 +348,14 @@ function getRandomAvailablePosition() {
 
   /* Generate random positions until one is found that doesn't overlap with the snake */
   while (!spaceIsAvailable) {
-    randomPosition.column = Math.floor(Math.random() * COLUMNS);
+
+    for (var i = 0; i < snake.body.length; i++) {
+  
+    randomPosition.column = Math.floor(Math.random() * COLUMNS); 
     randomPosition.row = Math.floor(Math.random() * ROWS);
+
+     
+    
     spaceIsAvailable = true;
 
     /*
@@ -359,7 +365,7 @@ function getRandomAvailablePosition() {
     */
   }
 
-  return randomPosition;
+ return randomPosition;
 }
 
 function calculateHighScore() {
