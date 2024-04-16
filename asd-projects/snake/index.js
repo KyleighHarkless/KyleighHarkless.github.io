@@ -349,12 +349,13 @@ function getRandomAvailablePosition() {
   /* Generate random positions until one is found that doesn't overlap with the snake */
   while (!spaceIsAvailable) {
 
-    for (var i = 0; i < snake.body.length; i++) {
-  
     randomPosition.column = Math.floor(Math.random() * COLUMNS); 
     randomPosition.row = Math.floor(Math.random() * ROWS);
 
-     
+    for (var i = 0; i < snake.body.length; i++) {
+      if (apple.column === snake.body[i].column && apple.row === snake.body[i].row) {
+        spaceIsAvailable = false
+      }
     
     spaceIsAvailable = true;
 
@@ -366,6 +367,7 @@ function getRandomAvailablePosition() {
   }
 
  return randomPosition;
+}
 }
 
 function calculateHighScore() {
