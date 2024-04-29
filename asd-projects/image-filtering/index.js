@@ -23,7 +23,7 @@ function applyAndRender() {
   
   applyFilter(reddify);
   applyFilterNoBackground(decreaseBlue);
-  applyFilterNoBackground(increaseGreenbyBlue);
+  applyFilterNoBackground(increaseGreenByBlue);
   
   
 
@@ -58,7 +58,7 @@ function applyFilterNoBackground(filterFunction) {
       var rgbString = image[i][j]
       
       if (rgbString === backgroundColor) {
-        return rgbString = backgroundColor
+        continue;
       } 
       else {
         var rgbNumbers = rgbStringToArray(rgbString);
