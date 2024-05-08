@@ -21,7 +21,7 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
   
-  applyFilter(reddify);
+  applyFilterNoBackground(reddify);
   applyFilterNoBackground(decreaseBlue);
   applyFilterNoBackground(increaseGreenByBlue);
   
